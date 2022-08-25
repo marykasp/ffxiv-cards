@@ -153,7 +153,10 @@ getUserBtn.addEventListener("click", (event) => {
   // grab input value
   let name = document.querySelector("#character").value;
   let server = document.querySelector("#server").value;
-  if (!serverList.includes(server.toUpperCase())) {
+  // capitalize server
+  server = server[0].toUpperCase() + server.slice(1);
+  console.log(server);
+  if (!serverList.includes(server)) {
     errorMsg.style.display = "block";
     // server does not exist then display error message
     errorMsg.textContent = "Please enter an actual server of FFXIV";
