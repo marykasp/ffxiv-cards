@@ -5,19 +5,27 @@ const getUserBtn = document.querySelector(".get-user");
 
 const url = "https://xivapi.com/character";
 
+// Functions
+const displayCharacterData = (charData) => {
+  const { Avatar } = charData;
+  imgContainer.querySelector("img").src = `${Avatar}`;
+};
+
 const getCharacterData = async (id) => {
   let response = await fetch(`${url}/${id}?data=MIMO`);
   if (response.ok) {
     let data = await response.json();
     // returns an object with multiple properties
     let character = data.Character;
-    console.log(character);
+    // console.log(character);
+    // pass character data into function to display
+    displayCharacterData(character);
   }
 };
 
 // Fetch DATA from FFXIV API
-const getUser = async () => {
-  let response = await fetch(`${url}/search?name=maisy moonwind&server=Coeurl`);
+const getUser = async (name) => {
+  let response = await fetch(`${url}/search?name=${name}&server=Coeurl`);
   // results property on object is an array - if single result then will just be one object on array
   if (response.ok) {
     let data = await response.json();
@@ -30,8 +38,10 @@ const getUser = async () => {
   }
 };
 
-getUserBtn.addEventListener("click", () => {
-  getUser();
+getUserBtn.addEventListener("click", (event) => {
+  // grab input value
+  let name = document.querySelector("input").value;
+  getUser(name.toLowerCase());
 });
 
 // {

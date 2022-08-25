@@ -8,7 +8,12 @@
 }
 
 :root {
-  --main-theme: #5C2CB2;
+  --main-theme: var(--dark-blue);
+  --purple-theme: #5C2CB2;
+  --pink: #DB879E;
+  --light: #BBD1D7;
+  --blue: #2B5087;
+  --dark-blue: #11294B;
 }
 
 .dark {
@@ -40,8 +45,8 @@ body {
 }
 
 .card .img-container {
-  height: 11.25rem;
-  width: 11.25rem;
+  height: 10.25rem;
+  width: 10.25rem;
   display: block;
   margin: -8.7em auto 0 auto;
   background-color: #fff;
@@ -51,18 +56,48 @@ body {
 
 .img-container img {
   width: 100%;
+  /* height: 10rem;
+  width: 10rem; */
+  border-radius: 50%;
+  object-fit: conver;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+form label {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+form input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 0.6rem;
+  color: var(--pink);
+  font-size: 1rem;
+}
+
+::placeholder {
+  color: rgb(220, 220, 220);
 }
 
 .container button {
-  display: block;
-  font-size: 1.2em;
-  width: 90%;
-  margin: 2em auto 0 auto;
-  padding: 1.1em 0;
+  margin-top: 1rem;
   border-radius: 0.3em;
   border: none;
   outline: none;
-  font-weight: 600;
-  color: #000;
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.2rem;
   cursor: pointer;
+  width: 100%;
+  background-color: var(--pink);
+  padding: 10px 0;
 }
