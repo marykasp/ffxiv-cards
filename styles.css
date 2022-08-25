@@ -8,7 +8,12 @@
 }
 
 :root {
-  --main-theme: #5074f3;
+  --main-theme: #5C2CB2;
+}
+
+.dark {
+  --dark-theme: #1C2024;
+  --lighter-dark: #212529
 }
 
 body {
@@ -42,4 +47,22 @@ body {
   background-color: #fff;
   box-shadow: 0 0 0 0.3em #fff, 0 0 0 0.9em var(--main-theme);
   border-radius: 50%;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+.container button {
+  display: block;
+  font-size: 1.2em;
+  width: 90%;
+  margin: 2em auto 0 auto;
+  padding: 1.1em 0;
+  border-radius: 0.3em;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
 }
