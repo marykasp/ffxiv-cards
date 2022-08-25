@@ -135,6 +135,7 @@ const getCharacterData = async (id) => {
 const getUser = async (name, server) => {
   let response = await fetch(`${url}/search?name=${name}&server=${server}`);
   // results property on object is an array - if single result then will just be one object on array
+  console.log(response);
   if (response.ok) {
     let data = await response.json();
     // returns an array of objects - grab first object
@@ -144,19 +145,21 @@ const getUser = async (name, server) => {
     // use lodestone ID to make another fetch request to get detailed character information
     getCharacterData(id);
   } else {
-    // display an error message
-    if (!serverList.includes(server.toUpperCase())) {
-      // server does not exist
-    }
+    errorMsg.textContent = "Something wrong with your information";
   }
 };
 
 getUserBtn.addEventListener("click", (event) => {
   // grab input value
   let name = document.querySelector("#character").value;
-  let server = document.querySelector("#server");
-  // capitalize server name
-  getUser(name.toLowerCase(), server.toLowerCase());
+  let server = document.querySelector("#server").value;
+  if (!serverList.includes(server.toUpperCase())) {
+    errorMsg.style.display = "block";
+    // server does not exist then display error message
+    errorMsg.textContent = "Please enter an actual server of FFXIV";
+  } else {
+    getUser(name.toLowerCase(), server.toLowerCase());
+  }
 });
 
 // {
