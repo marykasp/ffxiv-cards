@@ -16,6 +16,7 @@
 
 <body>
   <div class="container">
+
     <div class="card">
       <div class="img-container">
         <img src="" alt="">
@@ -23,9 +24,12 @@
       <div class="details"></div>
     </div>
 
+    <span id="error-msg">error message</span>
     <form action="#">
-      <label for="character">FFXIV Character:</label>
-      <input type="text" placeholder="enter character's name">
+      <input type="text" placeholder="enter character's name" id="character">
+
+      <input type="text" placeholder="enter server name of character"
+        id="server">
       <button class="get-user">Submit</button>
     </form>
   </div>
